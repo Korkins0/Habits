@@ -22,6 +22,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button button;
+    //aktivite değiştirmek
     int x=0;
     PointsGraphSeries<DataPoint> pointSeries;
     LineGraphSeries<DataPoint> lineSeries;
@@ -44,6 +46,20 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Integer> xDatas = new ArrayList<Integer>();
 
+
+
+        button = (Button)findViewById(R.id.changeActiv);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityInput();
+            }
+        });
+
+    }
+    public void openActivityInput(){
+        Intent intent = new Intent(this,inputActivity.class);
+        startActivity(intent);
     }
 
     /*public void sayi(View view){
