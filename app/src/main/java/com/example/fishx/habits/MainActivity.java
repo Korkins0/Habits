@@ -2,6 +2,8 @@ package com.example.fishx.habits;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Integer> xDatas = new ArrayList<Integer>();
 
+        notif();
 
 
         button = (Button)findViewById(R.id.changeActiv);
@@ -71,6 +74,26 @@ public class MainActivity extends AppCompatActivity {
             graph.addSeries(pointSeries);
 
     }*/
+
+
+    public void notif(){
+        String textTitle="Habits";
+        String textContent="Dont forget to mention your happiness!";
+        int notificationId=0;
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,MainActivity.NOTIFICATION_SERVICE)
+                .setSmallIcon(R.drawable.customborder)
+                .setContentTitle(textTitle)
+                .setContentText(textContent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationId, builder.build());
+
+
+    }
 
     public void graphMake(){
         graph.getViewport().setScalable(true);
@@ -108,4 +131,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 }
