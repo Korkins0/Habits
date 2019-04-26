@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         int notificationId=0;
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,MainActivity.NOTIFICATION_SERVICE)
-                .setSmallIcon(R.drawable.customborder)
+                .setSmallIcon(R.mipmap.icon)
                 .setContentTitle(textTitle)
                 .setContentText(textContent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
