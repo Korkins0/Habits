@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Integer> xDatas = new ArrayList<Integer>();
 
-        notif();
+
 
 
         button = (Button)findViewById(R.id.changeActiv);
@@ -76,24 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
 
-    public void notif(){
-        String textTitle="Habits";
-        String textContent="Dont forget to mention your happiness!";
-        int notificationId=0;
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,MainActivity.NOTIFICATION_SERVICE)
-                .setSmallIcon(R.mipmap.icon)
-                .setContentTitle(textTitle)
-                .setContentText(textContent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(notificationId, builder.build());
-
-
-    }
 
     public void graphMake(){
         graph.getViewport().setScalable(true);
