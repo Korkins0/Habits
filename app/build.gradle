@@ -27,6 +27,7 @@ dependencies {
     implementation 'com.github.alamkanak:android-week-view:1.2.6'
     implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
     implementation 'com.applandeo:material-calendar-view:1.4.0'
+    implementation 'com.roomorama:caldroid:3.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     implementation 'com.android.support.test.espresso:espresso-core:3.0.2'
