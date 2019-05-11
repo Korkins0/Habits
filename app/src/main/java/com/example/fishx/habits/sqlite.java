@@ -9,7 +9,6 @@ public class sqlite  extends SQLiteOpenHelper {
     public sqlite(Context c){
         super(c,"habits",null,1);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql="create table habit (habitname text primary key,streak integer ,beststreak integer,happiness real,generalinfo text)";

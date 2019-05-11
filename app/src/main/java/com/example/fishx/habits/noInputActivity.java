@@ -29,9 +29,9 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class inputActivity extends AppCompatActivity {
+public class noInputActivity extends AppCompatActivity {
     float rating = 3.72f;
-//cacac
+    //cacac
     private RadioButton check;
     private RatingBar scoreBar;
     private TextView mnthTxt,scoreTxt;
