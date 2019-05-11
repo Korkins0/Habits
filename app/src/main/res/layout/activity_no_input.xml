@@ -192,7 +192,7 @@
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="44dp"
-                android:text=" ● Hafızanız güçlenir"
+                android:text=" ● Ağız kokusu ve dişlerde sararma"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -203,7 +203,7 @@
                 android:layout_height="31dp"
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="28dp"
-                android:text=" ● Analitik düşünce yetenekleriniz gelişir"
+                android:text=" ● Kalp ve damar hastalıklarına yol açar"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -219,7 +219,7 @@
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="5dp"
-                android:text="  ● Konsantrasyonunuz artar"
+                android:text="  ● Kırışıklık, cilt kanserine sebep olur"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -235,7 +235,7 @@
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="-3dp"
-                android:text="  ● Yaratıcı zekanız gelişir"
+                android:text="  ● Damarlarda tıkanma ve buna bağlı felç"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -248,7 +248,7 @@
                 android:layout_alignTop="@+id/activityInfo"
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="87dp"
-                android:text="Yetişen zekaları kitaplarla beslemeyen uluslar, yıkılmaya mahkumdurlar."
+                android:text="Sigara sorunlarınızı çözmenize yardım etmez onlara bir yenisini ekler."
                 android:textColor="#000000"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
