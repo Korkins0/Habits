@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".inputActivity"></activity>
+        <activity android:name=".sayacActivity"></activity>
+        <activity android:name=".noInputActivity" />
+        <activity android:name=".inputActivity" />
         <activity android:name=".AddHabitActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

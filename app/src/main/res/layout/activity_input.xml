@@ -5,11 +5,20 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".inputActivity"
-    android:background="@drawable/ic_launcher_background">
+    android:background="@drawable/yastik"
+
+
+
+    >
+
+
+
 
 <RelativeLayout
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+
+    >
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -63,7 +72,7 @@ tools:context=".inputActivity"
     <RelativeLayout
         android:layout_below="@id/ovLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="324dp"
         android:id="@+id/calendarLayout"
         android:background="@drawable/customborder"
         >
@@ -118,9 +127,7 @@ tools:context=".inputActivity"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:id="@+id/scoreLayout"
-        android:background="@drawable/customborder"
-
-        >
+        android:background="@drawable/customborder">
 
         <TextView
             android:id="@+id/score"
@@ -141,8 +148,8 @@ tools:context=".inputActivity"
             android:isIndicator="true"
             android:numStars="5"
             android:layout_centerHorizontal="true"
-            android:rating="3.72"
-            android:stepSize="0.01" />
+            android:rating="3.5"
+            android:stepSize="0.1" />
 
         <TextView
             android:id="@+id/scoreTxt"
@@ -164,6 +171,8 @@ tools:context=".inputActivity"
             android:id="@+id/infoLayout"
             android:background="@drawable/customborder">
 
+
+
             <TextView
                 android:id="@+id/activityInfo"
                 android:layout_width="match_parent"
@@ -177,16 +186,76 @@ tools:context=".inputActivity"
 
             <TextView
                 android:id="@+id/actInfo"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
+                android:layout_width="122dp"
+                android:layout_height="31dp"
+                android:layout_alignEnd="@+id/activityInfo"
                 android:layout_marginLeft="36dp"
                 android:layout_marginTop="28dp"
+                android:layout_marginEnd="44dp"
+                android:text=" ● Daha açık bir zihine sahip olursunuz"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
-                android:text="aFASFASFsafaSFASFaSFafAFaSFAafsFAFS
-aSFASfasFASFsfsafdsadsafSAFsdsadfA
-aSFasfASDasfsafasdASfsafsafsafFSA
-"
-                />
+            <TextView
+                android:id="@+id/actInfo3"
+                android:layout_width="144dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="28dp"
+                android:text=" ● Depresyon ve kaygı sorunlarınız azalır"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo4"
+                android:layout_width="144dp"
+                android:layout_height="33dp"
+                android:layout_below="@+id/actInfo3"
+                android:layout_alignStart="@+id/actInfo3"
+                android:layout_alignEnd="@+id/actInfo3"
+                android:layout_marginStart="-5dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="5dp"
+                android:text="  ● Daha sağlıklı bir cilde sahip olursunuz"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo5"
+                android:layout_width="127dp"
+                android:layout_height="29dp"
+                android:layout_below="@+id/actInfo3"
+                android:layout_alignStart="@+id/actInfo3"
+                android:layout_alignEnd="@+id/actInfo"
+                android:layout_marginStart="188dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-3dp"
+                android:text="  ● Daha pozitif bir insan olursunuz."
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/actInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/activityInfo"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="87dp"
+                android:text="Erken yatmak, erken kalkmak; bir insanı sıhhatli, zengin ve becerikli yapar. -Benjamin Franklin"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
         </RelativeLayout>
+
 </RelativeLayout>
+
+
+
 </ScrollView>

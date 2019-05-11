@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".inputActivity"
+    android:background="@drawable/book"
+
+
+
+    >
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yaptım!"
+                android:onClick="radioCtrl"
+
+                />
+        </android.support.v7.widget.Toolbar>
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:id="@+id/ovLayout"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:text="Overview"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/ovInfo"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="28dp"
+                android:text="Progress Bar yerine burada kaç gün olduğunun bilgisi verilebilir?"
+                android:textSize="15dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/ovLayout"
+            android:layout_width="match_parent"
+            android:layout_height="324dp"
+            android:id="@+id/calendarLayout"
+            android:background="@drawable/customborder"
+            >
+
+            <TextView
+                android:id="@+id/calendarText"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:text="Calendar"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/monthText"
+
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="155dp"
+                android:layout_marginTop="22dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="Calendar"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+            <com.github.sundeepk.compactcalendarview.CompactCalendarView
+
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/compactcalendar_view"
+                android:layout_width="fill_parent"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_height="250dp"
+                app:compactCalendarTargetHeight="250dp"
+                app:compactCalendarTextSize="12sp"
+                app:compactCalendarBackgroundColor="#FFFFFF"
+                app:compactCalendarTextColor="#000000"
+                app:compactCalendarCurrentSelectedDayBackgroundColor="#A3A3A3"
+                app:compactCalendarCurrentDayBackgroundColor="#8B0000"
+                app:compactCalendarMultiEventIndicatorColor="#fff"
+                android:layout_below="@id/calendarText"
+                android:layout_marginTop="24dp"
+
+                />
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/calendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:id="@+id/scoreLayout"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="9dp"
+                android:text="Güne verdiğin ortalama puanın"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <RatingBar
+                android:id="@+id/scoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:layout_marginLeft="77dp"
+                android:layout_marginTop="36dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:layout_centerHorizontal="true"
+                android:rating="3.5"
+                android:stepSize="0.1" />
+
+            <TextView
+                android:id="@+id/scoreTxt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@id/score"
+                android:text="5"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/scoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:id="@+id/infoLayout"
+            android:background="@drawable/customborder">
+
+
+            <TextView
+                android:id="@+id/activityInfo"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:text="Bilgiler"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo"
+                android:layout_width="122dp"
+                android:layout_height="31dp"
+                android:layout_alignEnd="@+id/activityInfo"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="44dp"
+                android:text=" ● Hafızanız güçlenir"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo3"
+                android:layout_width="144dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="28dp"
+                android:text=" ● Analitik düşünce yetenekleriniz gelişir"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo4"
+                android:layout_width="144dp"
+                android:layout_height="33dp"
+                android:layout_below="@+id/actInfo3"
+                android:layout_alignStart="@+id/actInfo3"
+                android:layout_alignEnd="@+id/actInfo3"
+                android:layout_marginStart="-5dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="5dp"
+                android:text="  ● Konsantrasyonunuz artar"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/actInfo5"
+                android:layout_width="127dp"
+                android:layout_height="29dp"
+                android:layout_below="@+id/actInfo3"
+                android:layout_alignStart="@+id/actInfo3"
+                android:layout_alignEnd="@+id/actInfo"
+                android:layout_marginStart="188dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-3dp"
+                android:text="  ● Yaratıcı zekanız gelişir"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/actInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/activityInfo"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="87dp"
+                android:text="Yetişen zekaları kitaplarla beslemeyen uluslar, yıkılmaya mahkumdurlar."
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</ScrollView>
