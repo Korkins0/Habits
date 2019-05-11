@@ -107,7 +107,11 @@ SQLiteAdapter db = new SQLiteAdapter(context);
         String sDate1=day +"/"+month + "/"+ year;
         Log.i("datexd" , "anenisikm"+sDate1);
         db.dateAdd(new habitAdapter(sDate1));
-
+        try {
+            checkDates();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         caldroidFragment.refreshView();
     }
     public void checkDates() throws ParseException {
