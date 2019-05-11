@@ -30,7 +30,7 @@ import java.util.Locale;
 
 
 public class inputActivity extends AppCompatActivity {
-    float rating = 3.72f;
+    float rating = 3.5f;
 //cacac
     private RadioButton check;
     private RatingBar scoreBar;
@@ -54,17 +54,16 @@ public class inputActivity extends AppCompatActivity {
         scoreBar.setRating(rating);
         scoreTxt.setText(""+scoreBar.getRating());
 
-        //mnthTxt = findViewById(R.id.monthText);
-
-        //Burada puan ortalaması işlemi bitiyor.
-
-
         //=============================YENİ TAKVİM===============================
         Calendar calendar = Calendar.getInstance();
         Date today = calendar.getTime();
 
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
+
+
+
+
 
         Bundle args = new Bundle();
         Calendar cal = Calendar.getInstance();
@@ -84,14 +83,17 @@ public class inputActivity extends AppCompatActivity {
 
         caldroidFragment.refreshView();
 
+
         //takvim bitti.
     }
     public void radioCtrl(View v){
         Calendar calendar = Calendar.getInstance();
         Date today = calendar.getTime();
         Resources res = getResources();
+
         Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_launcher_background, null);
         caldroidFragment.setBackgroundDrawableForDate(drawable,today);
+
         caldroidFragment.refreshView();
     }
 
