@@ -51,17 +51,23 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+      // db.execSQL("DROP TABLE IF EXISTS " + table_HABIT);
+        //db.execSQL("DROP TABLE IF EXISTS " + table_DATE);
 
+
+        // create new tables
+        //onCreate(db);
     }
     public void dateAdd(habitAdapter contentValue){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(hatirlanacak_DATE,contentValue.getHabit());;
-        db.insert(table_DATE,null,values);
+        ContentValues values1 = new ContentValues();
+        values1.put(hatirlanacak_DATE,contentValue.getDate());;
+        db.insert(table_DATE,null,values1);
         db.close();
     }
     public void contentAdd(habitAdapter contentValue){
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         values.put(hatirlanacak_HABIT,contentValue.getHabit());
         values.put(hatirlanacak_STREAK,contentValue.getStreak());
@@ -69,6 +75,7 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
         values.put(hatirlanacak_HAPPINESS,contentValue.getHappiness());
         values.put(hatirlanacak_NOTIF,contentValue.getNotif());
         db.insert(table_HABIT,null,values);
+
         db.close();
     }
     public List<habitAdapter> getContents(){
@@ -90,6 +97,22 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
         return listeler;
+    }
+    public List<habitAdapter> getDates(){
+        List<habitAdapter> dateList = new ArrayList<>();
+        String query = " SELECT * FROM "+table_DATE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        habitAdapter listedate = null;
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do {
+                listedate = new habitAdapter();
+                listedate.setId(Integer.parseInt(cursor.getString(0)));
+                listedate.setDate(cursor.getString(1));
+                dateList.add(listedate);
+            }while (cursor.moveToNext());
+        }
+        return dateList;
     }
 
 }
