@@ -54,30 +54,6 @@ public class inputActivity extends AppCompatActivity {
         scoreBar.setRating(rating);
         scoreTxt.setText(""+scoreBar.getRating());
 
-        //mnthTxt = findViewById(R.id.monthText);
-
-        //Burada puan ortalaması işlemi bitiyor.
-
-      /*  //==============ESKİ TAKVİM ========Güzel bi takvim deil ========
-        compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
-        compactCalendar.setUseThreeLetterAbbreviation(true);
-        //deneme eventi ekleniyor.
-        Event ev1 = new Event(Color.RED,1555862825000L,"siexd");
-        compactCalendar.addEvent(ev1);
-        compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
-            @Override
-            public void onDayClick(Date dateClicked) {
-                Context context = getApplicationContext();
-                if(dateClicked.toString().compareTo("Sat Apr 20 19:00:00 AST 2019")==0)
-                    Toast.makeText(context,"siexddd",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(context,"nooooo",Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onMonthScroll(Date firstDayOfNewMonth) {
-                mnthTxt.setText(dateFormatMonth.format(firstDayOfNewMonth));
-            }
-        });*/
         //=============================YENİ TAKVİM===============================
         Calendar calendar = Calendar.getInstance();
         Date today = calendar.getTime();
@@ -107,14 +83,17 @@ public class inputActivity extends AppCompatActivity {
 
         caldroidFragment.refreshView();
 
+
         //takvim bitti.
     }
     public void radioCtrl(View v){
         Calendar calendar = Calendar.getInstance();
         Date today = calendar.getTime();
         Resources res = getResources();
+
         Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_launcher_background, null);
         caldroidFragment.setBackgroundDrawableForDate(drawable,today);
+
         caldroidFragment.refreshView();
     }
 

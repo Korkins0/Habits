@@ -3,7 +3,19 @@ package com.example.fishx.habits;
 import java.util.Date;
 
 public class Habit {
+    public Habit() {
+    }
 
+    public Habit(String habitName, boolean todayInput, int streak, int beststreak, float overallHappines, String generalInfo) {
+        this.habitName = habitName;
+        this.todayInput = todayInput;
+        this.streak = streak;
+        this.beststreak = beststreak;
+        this.overallHappines = overallHappines;
+        this.generalInfo = generalInfo;
+
+    }
+        
     String habitName;
     boolean todayInput;
     int streak;

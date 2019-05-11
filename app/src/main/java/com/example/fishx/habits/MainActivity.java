@@ -1,15 +1,18 @@
 package com.example.fishx.habits;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -21,19 +24,25 @@ import com.jjoe64.graphview.series.PointsGraphSeries;
 import com.jjoe64.graphview.series.Series;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
     //aktivite değiştirmek
     int x=0;
+
     PointsGraphSeries<DataPoint> pointSeries;
     LineGraphSeries<DataPoint> lineSeries;
+
     GraphView graph;
     ListView listView;
     ArrayAdapter arrayAdapter;
     ArrayList<String> habitNames;
+    ArrayAdapter<String> lAdapterHabits;
+    Context context = this;
 
+    List<Habit> habitCons;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,habitNames);
         graphMake();
 
-        ArrayList<Integer> xDatas = new ArrayList<Integer>();
 
+        ArrayList<Integer> xDatas = new ArrayList<Integer>();
 
 
 
@@ -113,8 +122,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }
+
+
+
+
+

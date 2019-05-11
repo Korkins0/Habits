@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".inputActivity"
-    android:background="@drawable/ic_launcher_foreground">
+    android:background="@drawable/ic_launcher_background">
 
 <RelativeLayout
     android:layout_width="wrap_content"
@@ -23,6 +23,7 @@ tools:context=".inputActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yaptım!"
+            android:onClick="radioCtrl"
 
             />
     </android.support.v7.widget.Toolbar>
@@ -62,7 +63,7 @@ tools:context=".inputActivity"
     <RelativeLayout
         android:layout_below="@id/ovLayout"
         android:layout_width="match_parent"
-        android:layout_height="324dp"
+        android:layout_height="wrap_content"
         android:id="@+id/calendarLayout"
         android:background="@drawable/customborder"
         >
@@ -109,13 +110,17 @@ tools:context=".inputActivity"
 
             />
 
+
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_below="@id/calendarLayout"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:id="@+id/scoreLayout"
-        android:background="@drawable/customborder">
+        android:background="@drawable/customborder"
+
+        >
 
         <TextView
             android:id="@+id/score"
@@ -136,8 +141,8 @@ tools:context=".inputActivity"
             android:isIndicator="true"
             android:numStars="5"
             android:layout_centerHorizontal="true"
-            android:rating="3.5"
-            android:stepSize="0.5" />
+            android:rating="3.72"
+            android:stepSize="0.01" />
 
         <TextView
             android:id="@+id/scoreTxt"
