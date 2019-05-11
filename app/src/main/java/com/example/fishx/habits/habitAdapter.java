@@ -4,6 +4,19 @@ public class habitAdapter {
     int id,streak,beststreak,notif;
     String habit;
     float happiness;
+    String Date;
+
+    public habitAdapter(String date) {
+        Date = date;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
 
     public habitAdapter() {
 

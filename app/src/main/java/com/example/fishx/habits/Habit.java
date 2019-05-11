@@ -15,7 +15,7 @@ public class Habit {
         this.generalInfo = generalInfo;
 
     }
-        
+
     String habitName;
     boolean todayInput;
     int streak;

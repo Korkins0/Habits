@@ -15,12 +15,14 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
     private static final String database_NAME = "habitDB";
     private static final int database_VERSION = 1;
     private static final String table_HABIT = "habitContentDB";
+    private static final String table_DATE = "dateDB";
     private static final String hatirlanacak_HABIT = "content";
     private static final String hatirlanacak_ID = "id";
     private static final String hatirlanacak_STREAK = "streak";
     private static final String hatirlanacak_BESTSTREAK = "beststreak";
     private static final String hatirlanacak_HAPPINESS = "happiness";
     private static final String hatirlanacak_NOTIF = "notif";
+    private static final String hatirlanacak_DATE = "date";
     private static final String COLUMNS[] = { hatirlanacak_ID ,hatirlanacak_HABIT  , hatirlanacak_STREAK , hatirlanacak_BESTSTREAK ,
             hatirlanacak_HAPPINESS ,  hatirlanacak_NOTIF};
     private static final String CREATE_TODOTABLE = "CREATE TABLE " + table_HABIT +" (" +
@@ -31,6 +33,10 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
             hatirlanacak_HAPPINESS +" REAL, " +
             hatirlanacak_NOTIF +" TEXT " +
             ");";
+    private static final String CREATE_DATETABLE = "CREATE TABLE " + table_DATE +" (" +
+            hatirlanacak_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            hatirlanacak_DATE +" TEXT " +
+            ");";
 
 
     public SQLiteAdapter(Context context) {
@@ -40,11 +46,19 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TODOTABLE);
+        db.execSQL(CREATE_DATETABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+    public void dateAdd(habitAdapter contentValue){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(hatirlanacak_DATE,contentValue.getHabit());;
+        db.insert(table_DATE,null,values);
+        db.close();
     }
     public void contentAdd(habitAdapter contentValue){
         SQLiteDatabase db = this.getWritableDatabase();
