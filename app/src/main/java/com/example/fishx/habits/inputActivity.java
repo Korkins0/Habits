@@ -1,7 +1,10 @@
 package com.example.fishx.habits;
 
+import android.app.AlertDialog;
 import android.content.Context;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -37,6 +40,8 @@ import java.util.Locale;
 public class inputActivity extends AppCompatActivity {
     float rating = 3.5f;
 //cacac
+    Intent intent;
+    habitAdapter selectedToDo;
     Context context = this;
     SQLiteDatabase db1;
 SQLiteAdapter db = new SQLiteAdapter(context);
@@ -54,7 +59,12 @@ SQLiteAdapter db = new SQLiteAdapter(context);
         final ActionBar actionbar = getSupportActionBar();
         actionbar.hide();
 
+        intent = getIntent();
+        int id = intent.getIntExtra("todo",1);
 
+
+        Log.i("gelenid", String.valueOf(id));
+        selectedToDo = db.contentRead(id);
         //date veritabanına ekleniyor.
 
         //Güne verilen puanların ortalamasını alıp texte ve ratinge yazdırmak.
@@ -132,12 +142,21 @@ SQLiteAdapter db = new SQLiteAdapter(context);
             Log.i("bakbuna","girdi");
         }
 
-
-
         caldroidFragment.refreshView();
+    }
+    public void btnSil(View v){
 
-
-
+        new AlertDialog.Builder(this)
+                .setMessage("Silmek istediğinize emin misiniz?")
+                .setCancelable(false)
+                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        db.deletetoDo(selectedToDo);
+                        inputActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("İptal", null)
+                .show();
     }
 
 

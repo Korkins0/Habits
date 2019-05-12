@@ -145,5 +145,26 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
         db.close();              //AND your Database!
         return hasObject;
     }
+    public habitAdapter contentRead(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(table_HABIT,COLUMNS," id = ?",new String[]{String.valueOf(id)},null,null,null);
+        if(cursor !=null)
+            cursor.moveToFirst();
+
+        habitAdapter liste = new habitAdapter();
+        liste.setId(cursor.getInt(0));
+        liste.setHabit(cursor.getString(1));
+        liste.setStreak(Integer.parseInt(cursor.getString(2)));
+        liste.setBeststreak(Integer.parseInt(cursor.getString(3)));
+        liste.setHappiness(Float.parseFloat(cursor.getString(4)));
+        liste.setNotif(Integer.parseInt(cursor.getString(5)));
+        return liste;
+    }
+    public void deletetoDo(habitAdapter list){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(table_HABIT,hatirlanacak_ID + " = ?",new String[]{String.valueOf(list.getId())});
+        db.close();
+
+    }
 
 }

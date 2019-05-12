@@ -55,27 +55,29 @@ public class AddHabitActivity extends AppCompatActivity {
 
                 if (position==0){
                     if(db.hasObject("Kitap Okuma","habitContentDB","content")){
-                        Toast.makeText(context,"You already have this habit in you list",3);
+                        Toast.makeText(getApplicationContext(), "You already have this habit in you list", Toast.LENGTH_LONG).show();
                     }
                     else{
                         db.contentAdd(new habitAdapter("Kitap Okuma",0 , 0,0,0));
+                        Toast.makeText(getApplicationContext(), "Added succesfully.", Toast.LENGTH_LONG).show();
                     }
                 }
                 if (position==1){
                     if(db.hasObject("Erken Yatma","habitContentDB","content")){
                         Toast.makeText(getApplicationContext(), "You already have this habit in you list", Toast.LENGTH_LONG).show();
-
                     }
                     else{
-                        db.contentAdd(new habitAdapter("Kitap Okuma",0 , 0,0,0));
+                        db.contentAdd(new habitAdapter("Erken Yatma",0 , 0,0,0));
+                        Toast.makeText(getApplicationContext(), "Added succesfully.", Toast.LENGTH_LONG).show();
                     }
                 }
                 if (position==2){
-                    if(true){
-                        Toast.makeText(context,"You already have this habit in you list",3);
+                    if(db.hasObject("Sigara","habitContentDB","content")){
+                        Toast.makeText(getApplicationContext(), "You already have this habit in you list", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        db.contentAdd(new habitAdapter("Kitap Okuma",0 , 0,0,0));
+                        db.contentAdd(new habitAdapter("Sigara",0 , 0,0,0));
+                        Toast.makeText(getApplicationContext(), "Added succesfully.", Toast.LENGTH_LONG).show();
                     }
                 }
 

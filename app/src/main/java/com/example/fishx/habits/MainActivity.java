@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 openActivityInput();
             }
         });
+        listeleDb();
 
     }
     public void openActivityInput(){
@@ -77,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listeleDb();
+    }
     /*public void sayi(View view){
 
             lineSeries.appendData(new DataPoint(x,1),true,10000);
@@ -140,22 +146,19 @@ public class MainActivity extends AppCompatActivity {
             listContent.add(i,list.get(i).getHabit());
 
         }
-        // List<String> listInts = new ArrayList<>();
-        // for(int i = 0; i <list.size() ; i++){
-        //     listInts.add(i,list.get(i).getYil());
 
-        // }
         lAdapter = new ArrayAdapter<String>(context,R.layout.row,R.id.baslik,listContent);
         listView.setAdapter(lAdapter);
-       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(context,toDoInfoActivity.class);
+
+                Intent intent = new Intent(context,inputActivity.class);
                 intent.putExtra("todo",list.get(position).getId());
                 Log.i("id=",String.valueOf(list.get(position).getId()));
                 startActivityForResult(intent,1);
             }
-        });*/
+        });
     }
 
 
