@@ -41,7 +41,7 @@ public class sayacActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input);
+        setContentView(R.layout.activity_sayac);
         final ActionBar actionbar = getSupportActionBar();
         actionbar.hide();
 

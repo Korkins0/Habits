@@ -152,10 +152,18 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=null;
+                String habitName = list.get(position).getHabit();
+                if(habitName.equals("Kitap Okuma"))
+                    intent = new Intent(context,sayacActivity.class);
+                if(habitName.equals("Erken Yatma"))
+                    intent = new Intent(context,inputActivity.class);
+                if(habitName.equals("Sigara"))
+                    intent = new Intent(context,noInputActivity.class);
 
-                Intent intent = new Intent(context,inputActivity.class);
                 intent.putExtra("todo",list.get(position).getId());
                 Log.i("id=",String.valueOf(list.get(position).getId()));
+                Log.i("HABITNAME=",habitName);
                 startActivityForResult(intent,1);
             }
         });
