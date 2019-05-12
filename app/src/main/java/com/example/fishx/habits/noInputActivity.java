@@ -1,7 +1,10 @@
 package com.example.fishx.habits;
 
+import android.app.AlertDialog;
 import android.content.Context;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 
@@ -13,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.EventLog;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RatingBar;
@@ -32,10 +36,14 @@ import java.util.Locale;
 public class noInputActivity extends AppCompatActivity {
     float rating = 3.72f;
     //cacac
+    Context context = this;
+    Intent intent;
+    habitAdapter selectedToDo;
     private RadioButton check;
     private RatingBar scoreBar;
     private TextView mnthTxt,scoreTxt;
     CompactCalendarView compactCalendar;
+    SQLiteAdapter db = new SQLiteAdapter(context);
     CaldroidFragment caldroidFragment = new CaldroidFragment();
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM", Locale.getDefault());
     @Override
@@ -46,7 +54,12 @@ public class noInputActivity extends AppCompatActivity {
         actionbar.hide();
 
 
+        intent = getIntent();
+        int id = intent.getIntExtra("todo",1);
 
+
+        Log.i("gelenid", String.valueOf(id));
+        selectedToDo = db.contentRead(id);
         //Güne verilen puanların ortalamasını alıp texte ve ratinge yazdırmak.
         scoreBar = (RatingBar)findViewById(R.id.scoreInfo);
         scoreTxt = findViewById(R.id.scoreTxt);
@@ -93,6 +106,20 @@ public class noInputActivity extends AppCompatActivity {
         Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_launcher_background, null);
         caldroidFragment.setBackgroundDrawableForDate(drawable,today);
         caldroidFragment.refreshView();
+    }
+    public void btnSil(View v){
+
+        new AlertDialog.Builder(this)
+                .setMessage("Silmek istediğinize emin misiniz?")
+                .setCancelable(false)
+                .setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        db.deletetoDo(selectedToDo);
+                        noInputActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("İptal", null)
+                .show();
     }
 
 
