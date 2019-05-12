@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> habitNames;
     ArrayAdapter<String> lAdapterHabits;
     Context context = this;
+    List<habitAdapter> list;
+    SQLiteAdapter db = new SQLiteAdapter(context);
+    ArrayAdapter<String> lAdapter;
 
     List<Habit> habitCons;
     @Override
@@ -122,6 +125,42 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void listeleDb(){
+        listView=findViewById(R.id.listview);
+
+        // db.contentAdd(new listAdapter("xddddd amllll sadgasdas sadfasdgasdjn sagjsadgkjasd dsags","2019","3","12","15","34","0"));
+        // db.contentAdd(new listAdapter("xddddd amllll","2018","3","12","15","34","0"));
+
+        list = db.getContents();
+
+
+        List<String> listContent = new ArrayList<>();
+        for(int i = 0; i <list.size() ; i++){
+            listContent.add(i,list.get(i).getHabit());
+
+        }
+        // List<String> listInts = new ArrayList<>();
+        // for(int i = 0; i <list.size() ; i++){
+        //     listInts.add(i,list.get(i).getYil());
+
+        // }
+        lAdapter = new ArrayAdapter<String>(context,R.layout.row,R.id.baslik,listContent);
+        listView.setAdapter(lAdapter);
+       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context,toDoInfoActivity.class);
+                intent.putExtra("todo",list.get(position).getId());
+                Log.i("id=",String.valueOf(list.get(position).getId()));
+                startActivityForResult(intent,1);
+            }
+        });*/
+    }
+
+
+
+
 }
 
 

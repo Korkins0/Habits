@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,6 +114,36 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
         return dateList;
+    }
+
+    public boolean hasObject(String ArananName, String TableName,String Sorgulanan) {
+        SQLiteDatabase db = getWritableDatabase();
+        String selectString = "SELECT * FROM " + TableName + " WHERE " + Sorgulanan + " =?";
+
+        // Add the String you are searching by here.
+        // Put it in an array to avoid an unrecognized token error
+        Cursor cursor = db.rawQuery(selectString, new String[] {ArananName});
+
+        boolean hasObject = false;
+        if(cursor.moveToFirst()){
+            hasObject = true;
+
+            //region if you had multiple records to check for, use this region.
+
+            int count = 0;
+            while(cursor.moveToNext()){
+                count++;
+            }
+            //here, count is records found
+
+
+            //endregion
+
+        }
+
+        cursor.close();          // Dont forget to close your cursor
+        db.close();              //AND your Database!
+        return hasObject;
     }
 
 }
