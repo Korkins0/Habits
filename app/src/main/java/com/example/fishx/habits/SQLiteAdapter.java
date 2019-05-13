@@ -36,7 +36,9 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
             ");";
     private static final String CREATE_DATETABLE = "CREATE TABLE " + table_DATE +" (" +
             hatirlanacak_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            hatirlanacak_DATE +" TEXT " +
+            hatirlanacak_DATE +" TEXT, " +
+            hatirlanacak_HABIT +" TEXT, " +
+            hatirlanacak_HAPPINESS +" REAL " +
             ");";
 
 
@@ -62,7 +64,9 @@ public class SQLiteAdapter extends SQLiteOpenHelper {
     public void dateAdd(habitAdapter contentValue){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values1 = new ContentValues();
-        values1.put(hatirlanacak_DATE,contentValue.getDate());;
+        values1.put(hatirlanacak_DATE,contentValue.getDate());
+        values1.put(hatirlanacak_HABIT,contentValue.getDate());
+        values1.put(hatirlanacak_HAPPINESS,contentValue.getDate());
         db.insert(table_DATE,null,values1);
         db.close();
     }

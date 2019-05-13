@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         lAdapter = new ArrayAdapter<String>(context,R.layout.row,R.id.baslik,listContent);
         listView.setAdapter(lAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

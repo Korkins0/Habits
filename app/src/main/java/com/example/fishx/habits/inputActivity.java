@@ -49,9 +49,9 @@ SQLiteAdapter db = new SQLiteAdapter(context);
     private RadioButton check;
     private RatingBar scoreBar;
     private TextView mnthTxt,scoreTxt;
-    CompactCalendarView compactCalendar;
+
     CaldroidFragment caldroidFragment = new CaldroidFragment();
-    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM", Locale.getDefault());
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,9 +77,31 @@ SQLiteAdapter db = new SQLiteAdapter(context);
         //=============================YENİ TAKVİM===============================
         Calendar calendar = Calendar.getInstance();
         Date today = calendar.getTime();
+        Resources res = getResources();
+        Calendar mcurrentTime = Calendar.getInstance();
+        int year = mcurrentTime.get(Calendar.YEAR);//Güncel Yılı alıyoruz
+        int month = mcurrentTime.get(Calendar.MONTH)+1;//Güncel Ayı alıyoruz
+        int day = mcurrentTime.get(Calendar.DAY_OF_MONTH);//Güncel Günü alıyoruz
+        Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_launcher_background, null);
+        for(int i = 1; i<13 ; i++){
+            String yakarTop=day-i +"/"+month + "/"+ year;
+            try {
+                Date yaksana = new SimpleDateFormat("dd/MM/yyyy").parse(yakarTop);
+                caldroidFragment.setBackgroundDrawableForDate(drawable,yaksana);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
-        calendar.add(Calendar.DAY_OF_YEAR, 1);
-        Date tomorrow = calendar.getTime();
+        }
+        String yakarTopeksik=day-10 +"/"+month + "/"+ year;
+        try {
+            Date yaksanaeksilt = new SimpleDateFormat("dd/MM/yyyy").parse(yakarTopeksik);
+            caldroidFragment.clearBackgroundDrawableForDate(yaksanaeksilt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
 
 
         Bundle args = new Bundle();
@@ -93,10 +115,10 @@ SQLiteAdapter db = new SQLiteAdapter(context);
         t.commit();
         t.show(caldroidFragment);
 
-        Resources res = getResources();
 
-        Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_launcher_background, null);
-        caldroidFragment.setBackgroundDrawableForDate(drawable,tomorrow);
+
+
+
 
         caldroidFragment.refreshView();
         try {
@@ -116,7 +138,7 @@ SQLiteAdapter db = new SQLiteAdapter(context);
         int day = mcurrentTime.get(Calendar.DAY_OF_MONTH);//Güncel Günü alıyoruz
         String sDate1=day +"/"+month + "/"+ year;
         Log.i("datexd" , "anenisikm"+sDate1);
-        db.dateAdd(new habitAdapter(sDate1));
+        db.dateAdd(new habitAdapter(sDate1,null,1f));
         try {
             checkDates();
         } catch (ParseException e) {

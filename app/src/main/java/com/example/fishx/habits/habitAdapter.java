@@ -6,7 +6,7 @@ public class habitAdapter {
     float happiness;
     String Date;
 
-    public habitAdapter(String date) {
+    public habitAdapter(String date, String habit , float happiness) {
         Date = date;
     }
 
